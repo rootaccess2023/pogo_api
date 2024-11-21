@@ -1,6 +1,9 @@
 require_relative "boot"
 
 require "rails"
+# Include default modules, including :assets
+require "rails/all"
+require 'sprockets/railtie'
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -25,7 +28,7 @@ module PogoApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "http://localhost:5173"
+        origins "https://pogoph.vercel.app"
         resource "*",
             headers: :any,
             methods: [ :get, :post, :patch, :put, :delete, :options ],
@@ -50,5 +53,8 @@ module PogoApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.assets.compile = true
+    config.assets.digest = true
+
   end
 end
