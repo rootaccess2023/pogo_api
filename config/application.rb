@@ -1,5 +1,5 @@
 require_relative "boot"
-
+require 'sprockets/railtie'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -25,7 +25,7 @@ module PogoApi
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "https://pogoph.vercel.app"
+        origins "http://localhost:5173"
         resource "*",
             headers: :any,
             methods: [ :get, :post, :patch, :put, :delete, :options ],
