@@ -47,5 +47,6 @@ group :development, :test do
 end
 
 gem "rack-cors"
-gem 'sprockets-rails', '~> 3.5.2'
+gem 'sprockets-rails'
+
 
